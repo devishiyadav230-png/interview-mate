@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Interview Mate – AI-Powered Mock Interview</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="ai.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'></script></head>
+<body>
+<div class="wrap">
+<header><div class="logo">🐝</div><div><h1>Interview Mate</h1><p>AI-Powered Mock Interview and Feedback System</p></div></header>
+<nav class="ai-tabs" id="ai-tabs"><button type="button" id="tab-classic" class="on">📝 Mock Interview</button><button type="button" id="tab-ai">🎙️ AI Interviewer <span class="ai-new">NEW</span></button></nav>
+
+<section id="setup" class="card">
+<b>Set up your mock interview</b>
+<label for="name">Your name</label><input id="name" placeholder="e.g. Devishi">
+<label for="role">Target role</label>
+<select id="role"></select>
+<label for="lvl">Difficulty</label>
+<select id="lvl"><option value="1">Fresher</option><option value="2">Intermediate</option></select>
+<label for="cnt">Number of questions</label>
+<select id="cnt"><option>3</option><option selected>5</option><option>7</option></select>
+<label for="jd">Job description or resume text (optional)</label>
+<textarea id="jd" placeholder="Paste a job description or your resume. Interview Mate will add questions based on its key skills."></textarea>
+<label for='rf'>Your resume (PDF or .txt, optional)</label><input type='file' id='rf' accept='.pdf,.txt,.md'><div id='rst' style='font-size:13px;color:var(--mut);margin-top:4px'></div><textarea id='rs' placeholder='Or paste your resume text here. Questions will be based on your projects and skills.'></textarea><label style='display:flex;gap:8px;align-items:flex-start'><input type='checkbox' id='usecam' style='width:auto;margin-top:5px'><span>Analyse my body language with the camera<br><small style='font-weight:400;color:var(--mut)'>Video stays on your device and is never uploaded.</small></span></label><div class="row"><button id="start">Start interview</button></div>
+</section>
+
+<section id="iv" class="hide">
+<div class="card">
+<div class="meta"><span id="prog"></span><span id="timer">00:00</span></div>
+<div class="bar"><i id="pb" style="width:0"></i></div>
+<div class="q" id="qt"></div>
+<video id='cam' class='hide' autoplay muted playsinline></video><canvas id='cv' class='hide'></canvas><textarea id="ans" placeholder="Type your answer here, as if you were speaking to the interviewer…"></textarea>
+<div class="meta" style="margin:6px 0 0"><span id="wc">0 words</span><span>Tip: aim for 60–150 words</span></div>
+<div class="row"><button id="sub">Submit answer</button><button class="ghost" id="skip">Skip</button></div>
+</div>
+<div id="fb" class="card hide"></div>
+</section>
+
+<section id="res" class="hide">
+<div class="card" id="sum"></div>
+<div class="card"><b>Your progress over time</b><div class="hist" id="hist"></div></div>
+<div class="row"><button id="again">Practice again</button><button class="ghost" id="clr">Clear history</button></div>
+</section>
+<section id="ai" class="hide"></section>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="ai-core.js"></script>
+<script src="ai-ui.js"></script>
+</body>
+</html>
